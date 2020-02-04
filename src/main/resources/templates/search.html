@@ -1,0 +1,73 @@
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="m-y-0">Information Gather All Network</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" action="/" method="POST" enctype="multipart/form-data" id="waitMeContainer">
+            <div class="form-group">
+                <label for="form-control-3" class="col-sm-3 col-md-4 control-label">Ad</label>
+                <div class="col-sm-6 col-md-4">
+                    <input type="text" class="form-control" id="form-control-3" name="name" placeholder="Ad..." required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form-control-4" class="col-sm-3 col-md-4 control-label">Soyad</label>
+                <div  class="col-sm-6 col-md-4">
+                    <input type="text" class="form-control" id="form-control-4" name="surname" placeholder="Soyad..." required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form-control-4" class="col-sm-3 col-md-4 control-label">Şəkil</label>
+                <div class="col-sm-6 col-md-4">
+                    <input type="file" accept="image/png, image/jpeg" name="imageFile" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="form-control-4" class="col-sm-3 col-md-4 control-label">Mod</label>
+                <div class="col-sm-6 col-md-4">
+                    <label>
+                        <select name="mode">
+                            <option>fast</option>
+                            <option>accurate</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="form-control-4" class="col-sm-3 col-md-4 control-label">Mod</label>
+                <div class="col-sm-6 col-md-4">
+                    <label>
+                        <input type="checkbox" name="social" value="facebook"> Facebook
+                    </label>
+                    <label>
+                        <input type="checkbox" name="social" value="twitter"> Twitter
+                    </label>
+                    <label>
+                        <input type="checkbox" name="social" value="instagram"> Instagram
+                    </label>
+                    <label>
+                        <input type="checkbox" name="social" value="linkedin"> LinkedIn
+                    </label>
+                    <label>
+                        <input type="checkbox" name="social" value="vkontakte"> Vkontakte
+                    </label>
+                </div>
+            </div>
+            <link rel="stylesheet" type="text/css" href="css/fontawesome.min.css">
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4">
+                    <button type="submit" class="btn btn-primary" id="waitme_Ex" onclick="loading(this)">Əlavə et</button>
+                </div>
+            </div>
+            <script>
+                function loading(this1)
+                {
+                    this1.disabled=true;
+                    this1.innerHTML='<i class="fas fa-spinner fa-spin"></i> Loading...';
+                }
+            </script>
+        </form>
+    </div>
+</div>

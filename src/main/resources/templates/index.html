@@ -1,0 +1,121 @@
+
+    <!DOCTYPE html>
+    <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta name="description" content="">
+		<title>IBAR</title>
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700" rel="stylesheet">
+		<link rel="stylesheet" href="/css/vendor.min.css">
+		<link rel="stylesheet" href="/css/cosmos.min.css">
+		<link rel="stylesheet" href="/css/application.min.css">
+		<link rel="stylesheet" href="/css/fontawesome.min.css">
+
+	</head>
+
+	<body class="layout layout-header-fixed layout-left-sidebar-fixed">
+	<div class="site-overlay"></div>
+	<div class="site-header">
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/">
+					<img src="/img/ibar.jpg" alt="" height="25">
+					<span>IBAR.AZ</span>
+				</a>
+				<button class="navbar-toggler left-sidebar-toggle pull-left visible-xs" type="button">
+					<span class="hamburger"></span>
+				</button>
+				<button class="navbar-toggler right-sidebar-toggle pull-right visible-xs-block" type="button">
+					<i class="zmdi zmdi-long-arrow-left"></i>
+					<div class="dot bg-danger"></div>
+				</button>
+				<button class="navbar-toggler pull-right visible-xs-block" type="button" data-toggle="collapse"
+                        data-target="#navbar">
+					<span class="more"></span>
+				</button>
+			</div>
+			<div class="navbar-collapsible">
+				<div id="navbar" class="navbar-collapse collapse">
+					<button class="navbar-toggler left-sidebar-collapse pull-left hidden-xs" type="button">
+						<span class="hamburger"></span>
+					</button>
+					<ul class="nav navbar-nav navbar-right">
+						<li class="nav-table dropdown hidden-sm-down">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-haspopup="true" aria-expanded="false"><span class="nav-cell p-r-10">
+                                    <img class="img-circle" src="img/avatars/1.jpg" alt="" width="32" height="32">
+                                </span><span class="nav-cell"><?= $_SESSION['fullname'] ?>
+                                    <span class="caret"></span></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="/logout"><i class="zmdi zmdi-power m-r-10"></i>Çıxış</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<div class="site-main">
+		<div class="site-left-sidebar">
+            <div class="sidebar-backdrop"></div>
+            <div class="custom-scrollbar">
+                <ul class="sidebar-menu">
+                    <li>
+                        <a href="/"><span class="menu-icon"><i class="zmdi zmdi-home"></i></span><span class="menu-text">Əsas səhifə</span></a>
+                    </li>
+                        <li class="with-sub">
+							<a href="#" aria-haspopup="true" aria-expanded="false"><span class="menu-icon"><i class="zmdi zmdi-accounts"></i></span>
+								<span class="menu-text dropdown-btn">İstifadəçilər</span>
+							</a>
+							<div class="dropdown-container">
+								<ul class="sidebar-submenu" aria-expanded="false" id="dropdown">
+									<li class="menu-subtitle">İstifadəçilər</li>
+									<li><a href="/?act=addmember">İstifadəçi əlavə et</a></li>
+									<li><a href="/?act=members">İstifadəçilər</a></li>
+								</ul>
+
+							</div>
+						</li>
+
+					<li class="with-sub">
+						<a href="#" aria-haspopup="true" aria-expanded="false">
+                            <span class="menu-icon">
+                              <i class="zmdi zmdi-alert-triangle"></i>
+                            </span>
+							<span class="menu-text">Search Engine's</span>
+						</a>
+						<ul class="sidebar-submenu" aria-expanded="false">
+							<li><a href="/?act=search">Search </a> </li>
+						</ul>
+					</li>
+
+					<li>
+						<a href="/results">
+							<span class="menu-icon"><i class="zmdi zmdi-info"></i>
+							</span><span class="menu-text">Total Search</span>
+						</a>
+					</li>
+					<li class="with-sub">
+						<a href="#" aria-haspopup="true" aria-expanded="false">
+                            <span class="menu-icon"><i class="zmdi zmdi-account"></i></span>
+							<span class="menu-text">Profil</span>
+						</a>
+						<ul class="sidebar-submenu" aria-expanded="false">
+							<li class="menu-subtitle">Haqqımızda</li>
+							<li><a href="/?act=password">Şifrəni dəyiş</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="site-content" th:utext="${content}">
+
+		</div>
+	</div>
+	</body>
+
+	</html>
+
