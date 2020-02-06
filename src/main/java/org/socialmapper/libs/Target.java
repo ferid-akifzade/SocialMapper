@@ -2,6 +2,7 @@ package org.socialmapper.libs;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import javax.persistence.Table;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +12,10 @@ import javax.persistence.Id;
 @Data
 @AllArgsConstructor
 @Entity
+@Table(name = "target")
 public class Target {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String surname;
