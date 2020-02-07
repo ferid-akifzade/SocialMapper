@@ -37,7 +37,7 @@ public class MapperService {
 
     public String render(Model model, String action, String doAction, int id) {
         try {
-            BufferedReader reader = new BufferedReader(new FileReader(new File(String.format("src/main/resources/templates/%s.html", action))));
+            BufferedReader reader = new BufferedReader(new FileReader(new File(String.format("templates/%s.html", action))));
             String collect = reader.lines().collect(Collectors.joining());
             reader.close();
             if (action.equals("members")) {
@@ -50,6 +50,7 @@ public class MapperService {
                 model.addAttribute("content", collect);
                 return "index";
             }
+
         } catch (IOException ex) {
             log.error(ex.getMessage());
             model.addAttribute("content", "");
@@ -108,12 +109,14 @@ public class MapperService {
             String format = String.format("python3 social_mapper/social_mapper.py -f imagefolder -i social_mapper/target -m %s %s", mode, doAction);
             Process mapping = Runtime.getRuntime().exec(format);
             BufferedReader mappingResult = new BufferedReader(new InputStreamReader(mapping.getInputStream()));
+            BufferedReader error = new BufferedReader(new InputStreamReader(mapping.getErrorStream()));
+            log.info(error.lines().collect(Collectors.joining()));
             List<String> result = mappingResult.lines().collect(Collectors.toList());
+            result.forEach(log::info);
             parseResult(name, surname, result);
             resultImage.delete();
         }
     }
-
     private void parseResult(String name, String surname, List<String> mappingResults) {
         Set<Target> targets = new HashSet<>();
         Target target = new Target();

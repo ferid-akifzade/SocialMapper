@@ -85,8 +85,8 @@
                     <div class="dropdown-container">
                         <ul class="sidebar-submenu" aria-expanded="false" id="dropdown">
                             <li class="menu-subtitle">İstifadəçilər</li>
-                            <li><a href="/?act=addmember">İstifadəçi əlavə et</a></li>
-                            <li><a href="/?act=members">İstifadəçilər</a></li>
+                            <li><a href="/addmember">İstifadəçi əlavə et</a></li>
+                            <li><a href="/members">İstifadəçilər</a></li>
                         </ul>
 
                     </div>
@@ -100,12 +100,12 @@
                         <span class="menu-text">Search Engine's</span>
                     </a>
                     <ul class="sidebar-submenu" aria-expanded="false">
-                        <li><a href="/?act=search">Search </a> </li>
+                        <li><a href="/">Search </a> </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="/?act=feed">
+                    <a href="/results">
                 <span class="menu-icon">
                   <i class="zmdi zmdi-info"></i>
                 </span>
@@ -124,7 +124,7 @@
                     </a>
                     <ul class="sidebar-submenu" aria-expanded="false">
                         <li class="menu-subtitle">Haqqımızda</li>
-                        <li><a href="/?act=password">Şifrəni dəyiş</a></li>
+                        <li><a href="/password">Şifrəni dəyiş</a></li>
 
                     </ul>
                 </li>
@@ -142,14 +142,12 @@
                         <thead>
                         <tr>
                             <th>İstifadəçi</th>
-                            <th>Mail</th>
                             <th>Əməliyyatlar</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="tempUser : ${users}">
                             <td th:text="${tempUser.getUsername()}"></td>
-                            <td th:text="${tempUser.getRole()}"></td>
                             <td><a th:href="@{'/?act=members&do=delete&id=' + ${tempUser.getId()}}" title="Sil" class="btn btn-danger"><i class="zmdi zmdi-alert-triangle"></i></a></td>
                         </tr>
                         </tbody>

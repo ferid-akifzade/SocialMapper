@@ -25,16 +25,11 @@ public class MapperController {
     }
 
     @GetMapping
-    public String getDefault(@RequestParam(value = "act", defaultValue = "search", required = false) String action,
-                             @RequestParam(value = "do", defaultValue = "", required = false) String doAction,
-                             @RequestParam(value = "id", defaultValue = "-1", required = false) int id,
-                             HttpServletResponse response,
-                             Model model) throws IOException {
-        if (LoginService.isLogged)
-            return service.render(model, action, doAction, id);
-        else
+    public String getDefault(HttpServletResponse response) throws IOException {
+        if (!LoginService.isLogged) {
             response.sendRedirect("/login");
-            return "results";
+        }
+        return "index";
     }
 
     @PostMapping
@@ -45,7 +40,6 @@ public class MapperController {
                               @RequestParam(value = "social") String[] socials,
                               HttpServletResponse response) throws IOException {
         if (LoginService.isLogged) {
-
             service.search(name, surname, image, socials, mode);
             response.sendRedirect("/results");
         }
